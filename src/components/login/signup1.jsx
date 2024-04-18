@@ -14,7 +14,7 @@ function Signup1() {
 
     // Generate a UUID based on the unique string
     const generatedUniqueId = uuidv4(uniqueString);
-
+    console.log(generatedUniqueId);
     // Set the generated unique ID to state
     setUniqueId(generatedUniqueId);
   };

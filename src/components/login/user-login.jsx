@@ -39,7 +39,7 @@ function UserLogin() {
   }
 
   const handleSignupClick = () => {
-    navigate('/userdash'); // Navigate to the signup page using navigate function
+    navigate(`/userdash/${email}`); // Navigate to the signup page using navigate function
   };
 
   return (

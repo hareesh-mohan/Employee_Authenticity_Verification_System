@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import DownloadFile from '../DownloadFile';
+import './userDash.css'; // Import the CSS file for styling
 
 function UserDash() {
   const [documents, setDocuments] = useState([]);
+  const [loading, setLoading] = useState(true); // State variable to track loading state
   const { userEmail } = useParams();
+
   const handleViewDocuments = async () => {
+    setLoading(true); // Set loading state to true before fetching documents
     // Fetch documents from backend
     try {
-      const response = await fetch(`/documents?email=${userEmail}`, {
+      const response = await fetch(`http://localhost:3001/document/${userEmail}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -24,15 +29,19 @@ function UserDash() {
     } catch (error) {
       console.error('Error fetching documents:', error.message);
       // Handle error, show error message, etc.
+    } finally {
+      setLoading(false); // Set loading state to false after fetching documents
     }
   };
 
   return (
-    <div>
-      <button onClick={handleViewDocuments}>View Documents</button>
+    <div className="user-dash">
+      {loading ? ( // Render "View Documents" button only when not loading
+        <button onClick={handleViewDocuments}>View Documents</button>
+      ) : null}
       <ul>
         {documents.map((document, index) => (
-          <li key={index}>{document}</li>
+          <DownloadFile key={index} hashValue={document} />
         ))}
       </ul>
     </div>

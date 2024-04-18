@@ -12,6 +12,7 @@ mongoose.connect(
 app.use(express.json());
 app.post("/signup", async (req, res) => {
   const { name, age, email, userType, password, uniqueId } = req.body;
+  console.log(req.body);
   const newUser = new User({ name, age, email, userType, password, uniqueId });
   await newUser.save();
   res.status(201).send({ message: "User created successfully" });
@@ -28,10 +29,12 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.get("/documents", async (req, res) => {
-  const userEmail = req.query.email;
+app.get("/document/:email", async (req, res) => {
+  const userEmail = req.params.email;
+  console.log(userEmail)
   try {
-    const documents = await User.findOne({ userEmail });
+    const documents = await User.findOne({ email: userEmail });
+    console.log(documents);
     if (!documents) {
       return res
         .status(404)
@@ -40,6 +43,31 @@ app.get("/documents", async (req, res) => {
     res.status(200).json({ documents: documents.docHash });
   } catch (error) {
     console.error("Error fetching documents:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+app.put("/documents/:userId", async (req, res) => {
+  const uniqueId = req.params.userId;
+  const { docHash } = req.body; // Assuming docHash is passed in the request body
+  console.log(docHash)
+  try {
+    // Find the user by userId
+    const user = await User.findOne({ uniqueId });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Update the docHash array
+    user.docHash.push(docHash);
+    
+    // Save the updated user document
+    await user.save();
+
+    res.status(200).json({ message: "Document hash added successfully" });
+  } catch (error) {
+    console.error("Error adding document hash:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 });

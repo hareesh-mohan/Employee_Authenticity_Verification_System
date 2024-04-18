@@ -14,7 +14,7 @@ const CompanyFunction = () => {
 
   const connectMetamask = async () => {
     if (window.ethereum !== "undefined") {
-      const accounts = await ethereum.request({
+      const accounts = await window.ethereum.request({
         method: "eth_requestAccounts",
       });
       setAccount(accounts[0]);
