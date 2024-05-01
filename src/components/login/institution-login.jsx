@@ -44,7 +44,7 @@ function InstitutionLogin() {
 
   return (
     
-    <form onSubmit={handleSubmit} autoComplete='on' className='form-container'>
+    <form onSubmit={handleSubmit} className='form-container'>
       <h1>Institution </h1>
       <label>
         Username

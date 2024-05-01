@@ -71,8 +71,8 @@ function CompanyDash() {
     <div className="company-dash">
       {/* <button onClick={connectMetamask}>CONNECT TO METAMASK</button>
             <p id="accountArea">Connection Status: {connectionStatus.metamask}</p> */}
-      {/* <button onClick={connectContract}>CONNECT TO CONTRACT</button> */}
       <h1>Verification</h1>
+      {/* <button onClick={connectContract}>CONNECT TO CONTRACT</button> */}
       <p id="contractArea">{connectionStatus.contract}</p>
       <br />
       <br />

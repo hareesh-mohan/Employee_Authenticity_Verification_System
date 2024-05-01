@@ -53,9 +53,6 @@ const InstiDash = () => {
   const [hashValue, setHashValue] = useState(null);
   const [bytes32hashValue, setBytes32HashValue] = useState(null);
 
-  useEffect(() => {
-    connectContract();
-  });
 
   const handleFileUpload = (hashValue, bytes32hashValue) => {
     setHashValue(hashValue);
@@ -116,13 +113,13 @@ const InstiDash = () => {
 
     return (
         <div className="insti-dash-container" id="insti-dashboard">
+      <button onClick={connectContract}>CONNECT TO CONTRACT</button>
       <p id="contractArea">{connectionStatus.contract}</p>
             <button onClick={connectMetamask}>CONNECT TO METAMASK</button>
       <p id="accountArea">Account:<br />{connectionStatus.metamask}</p>
-      {/* <button onClick={connectContract}>CONNECT TO CONTRACT</button> */}
       <br />
       <br />
-            <input className="input-field" type="text" value={userId} onChange={handleUserIdChange} placeholder="Enter User ID" />
+            <input className="input-field" type="text" value={userId} onChange={handleUserIdChange} />
             <input className="file-input" type="file" onChange={fileUpload} />
             {errorMessage && <p className="error-message">{errorMessage}</p>}
             <button onClick={addDoc}>ADD DOCUMENT</button> <br />
