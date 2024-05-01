@@ -44,11 +44,11 @@ function InstitutionLogin() {
 
   return (
     
-    <form onSubmit={handleSubmit} className='form-container'>
-      <h1>Institution Login</h1>
+    <form onSubmit={handleSubmit} autoComplete='on' className='form-container'>
+      <h1>Institution </h1>
       <label>
         Username
-        <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <input type="text" value={email}  onChange={(e) => setEmail(e.target.value)} required />
       </label>
       <label>
         Password

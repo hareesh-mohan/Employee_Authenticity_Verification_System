@@ -26,7 +26,7 @@ function Signup1() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, age, email, userType, password,uniqueId }),
+        body: JSON.stringify({ name, age, email, userType, password }),
       });
       const data = await response.json();
       if (response.ok) {
@@ -41,17 +41,18 @@ function Signup1() {
 
   return (
     <form onSubmit={handleSubmit} className='form-container'>
+      <h1>Sign Up</h1>
       <label>
-        Name:
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+        {/* Name: */}
+        <input type="text" value={name} placeholder="Enter your name" onChange={(e) => setName(e.target.value)} />
       </label>
       <label>
-        Age:
-        <input type="number" value={age} onChange={(e) => setAge(e.target.value)} />
+        {/* Age: */}
+        <input type="number" value={age} placeholder="Enter your age"  onChange={(e) => setAge(e.target.value)} />
       </label>
       <label>
-        Email:
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        {/* Email: */}
+        <input type="email" value={email} placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)} />
       </label>
       <label>
         User Type:
@@ -66,7 +67,7 @@ function Signup1() {
         Password:
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       </label>
-      <button type="submit" onClick={handleGenerateUniqueId}>Sign Up</button>
+      <button type="submit" onClick={handleGenerateUniqueId}>Register</button>
       {uniqueId && (
         <div>
           <h2>Unique ID:</h2>
