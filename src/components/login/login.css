@@ -1,104 +1,247 @@
 /* index.css */
+
+/* General Styles */
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Quicksand', sans-serif;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+/* index.css */
+
+/* Main Page Styles */
+
+.mainpage {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #222; /* Dark background */
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.mainpage h1 {
+  margin-bottom: 40px;
+  font-size: 32px;
+  color: #fff; /* White text */
+}
+
+.mainlinks {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.navlink {
+  display: inline-block;
+  width:100px;
+  padding: 15px 30px;
+  margin: 0 10px; /* Add spacing between links */
+  background-color: #4CAF50; /* Classy green color */
+  color: #fff; /* White text */
+  text-decoration: none;
+  border-radius: 5px; /* Reduced border radius */
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.navlink:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+
+/* Additional Styles */
+
 .container {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
 
-    text-align: center; /* Center align text inside the container */
-    
-  }
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-image: url('tech.jpg'); /* Specify the path to your background image */
-    background-size: cover; /* Ensure the background image covers the entire viewport */
-    background-position: center; /* Center the background image */
-    background-repeat: no-repeat; /* Prevent the background image from repeating */
-    font-family: 'Quicksand', sans-serif;
 
-  }/* style.css */
+
+/* Button Styles */
 
 .button {
   width: 300px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #b7bbbd28;
-  border-radius: 35px;
-  background-color: #010e07;
-  text-align: center;
-  color: #ccc;
-  font-size: medium;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  
-}
-
-.but {
-  display: inline-block;
-  margin: 10px 0;
-  padding: 10px 20px;
-  text-decoration: none;
-  border: 1px solid #007bff;
-  border-radius: 35px;
+  margin: 20px auto; /* Adjust margin for better spacing */
+  padding: 15px 25px; /* Adjust padding for better proportion */
+  border: 2px solid #007bff; /* Increase border width for emphasis */
+  border-radius: 25px; /* Smoothen border radius */
   background-color: #007bff;
-  font-family:Georgia, 'Times New Roman', Times, serif;
-  font-weight: bolder;
-  color: #e4e1e1;
-  transition: background-color 0.3s, color 0.3s;
+  color: #fff;
+  font-size: 1.1em; /* Emphasize font size */
+  font-weight: bold;
+  font-family: 'Arial', sans-serif; /* Use a common font stack */
+  text-transform: uppercase; /* Convert text to uppercase */
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Add transition for smoother hover effect */
 }
 
-.but:hover {
+.button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* Form Styles */
+
+.form-container {
+  max-width: 700px;
+  width:450px;
+  max-height:700px;
+  margin: 20px auto; /* Adjust margin for better spacing */
+  padding: 30px;
+  background-color: #f9f9f9; /* Lighten background color */
+  border-radius: 20px;
+  color: #333; /* Darken text color for better contrast */
+  font-weight: bold;
+  font-family: 'Arial', sans-serif; /* Use a common font stack */
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Enhance box shadow */
+}
+
+
+.form-container label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form-container input,
+.form-container select {
+  width: calc(100% - 60px); /* Adjust width for better spacing */
+  padding: 10px;
+  margin-bottom: 20px; /* Increase margin bottom for better separation */
+  border: 1px solid #ccc;
+  border-radius: 10px; /* Smoothen border radius */
+  box-sizing: border-box;
+}
+
+.form-container button {
+  width: 50%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Add transition for smoother hover effect */
+}
+
+.form-container button:hover {
   background-color: #0056b3;
 }
 
-  h1 {
-      
-    margin-bottom: 20px;
-    text-align: center; 
-  }
-  .form-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #000000;
-    border-radius: 20px;
-    color: #fff;
-    font-weight: bold;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .form-container label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .form-container input,
-  .form-container select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    box-sizing: border-box; /* Ensure padding and border are included in the width */
-  }
-  
-  .form-container button {
-    width: 50%;
-    padding: 10px;
-    background-color: #ff4d00;
-    color: #fff;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-  }
-  
-  .form-container button:hover {
-    background-color: #0056b3;
-  }
-  
-  .error-message {
-    color: red;
-    margin-top: 10px;
-  }
-  
-  
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Additional Styles */
+
+h1 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333; /* Darken text color for better contrast */
+}
+
+.container {
+  background-color: #fff; /* Set background color */
+  padding: 20px; /* Add padding for better spacing */
+}
+
+
+/*--------------------------------------------------*/
+/*BY me*/
+
+
+
+#insti-dashboard {
+  background-color: #fff; /* Set background color */
+  border-radius: 30px;
+  width:600px;
+  height:400px;
+  padding: 40px; /* Add padding for better spacing */
+}
+
+#accountArea{
+  color: green;
+  font-weight: bold;
+}
+#contractArea{
+  color:blue;
+  font-weight: bolder;
+}
+
+#insti-dashboard .input-field {
+  width: 350px;
+}
+
+.user-dash {
+  background-color: #fff; /* Set background color */
+  border-radius: 30px;
+  width:400px;
+  height:300px;
+  padding: 40px; /* Add padding for better spacing */
+  text-align: center;
+
+}
+.user-dash button{
+  height: 30px;
+  text-align: center;
+  width: 150px;
+}
+
+/* index.css */
+
+.company-dash {
+  max-width: 600px;
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background */
+  border-radius: 30px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.company-dash input[type="text"] {
+  width: 100%; /* Full width input */
+  padding: 10px;
+  margin-bottom: 20px; /* Spacing between inputs */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+.company-dash p {
+  margin-bottom: 10px; /* Spacing between paragraphs */
+}
+
+.company-dash button {
+  padding: 12px 30px; /* Padding for button */
+  background-color: #007bff; /* Blue button background */
+  color: #fff; /* Button text color */
+  border: none;
+  border-radius: 5px; /* Button border radius */
+  cursor: pointer;
+  font-size: 16px; /* Button font size */
+  transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+.company-dash button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}

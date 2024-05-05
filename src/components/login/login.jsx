@@ -42,11 +42,13 @@ function Login() {
   };
 
   return (
-    <div className='button'>
+    <div className='mainpage'>
       <h1 >Select Login type</h1>
-      <a href='/user-login' className='but' >User</a><br></br>
-      <a href='/company-login' className='but' >Company</a><br></br>
-      <a href='/institution-login' className='but' >Institution</a><br></br>
+      <ul className='mainlinks'>
+      <li><a href='/user-login' className='navlink' >User</a><br></br></li>
+      <li><a href='/company-login' className='navlink' >Company</a><br></br></li>
+      <li><a href='/institution-login' className='navlink' >Institution</a><br></br></li>
+      </ul>
     </div>
   );
 }
