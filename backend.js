@@ -83,7 +83,7 @@ app.get("/document/:email", async (req, res) => {
 app.put("/documents/:userId", async (req, res) => {
   const uniqueId = req.params.userId;
   const { docHash } = req.body; // Assuming docHash is passed in the request body
-  console.log(docHash)
+
   try {
     // Find the user by userId
     const user = await User.findOne({ uniqueId });
@@ -92,9 +92,14 @@ app.put("/documents/:userId", async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    // Update the docHash array
+    // Check if the docHash already exists in the docHash array
+    if (user.docHash.includes(docHash)) {
+      return res.status(400).json({ message: "Document hash already exists" });
+    }
+
+    // Push the docHash to the docHash array
     user.docHash.push(docHash);
-    
+
     // Save the updated user document
     await user.save();
 
@@ -104,6 +109,7 @@ app.put("/documents/:userId", async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
+
 
 app.listen(3001, () => {
   console.log("Server started on port 3001");
