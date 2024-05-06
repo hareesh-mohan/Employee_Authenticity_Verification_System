@@ -55,7 +55,7 @@ function CompanyLogin() {
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
       </label>
       <button type="submit" >Login</button><br></br>
-      If you don't have an account click <a href='/signup1' className='but' >here</a>
+      If you don't have an account click <a href='/company_signup' className='but' >here</a>
     </form>
   );
 }

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-function Signup1() {
+function Institution_signup() {
   const [name, setName] = useState('');
-  const [age, setAge] = useState('');
+  const [aicteid, setId] = useState('');
   const [email, setEmail] = useState('');
-  const [gender, setGender] = useState('');
   const [userType, setUserType] = useState('');
   const [password, setPassword] = useState('');
   const [uniqueId, setUniqueId] = useState('');
@@ -28,7 +27,7 @@ function Signup1() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, age, gender,email, userType, institution, password }),
+        body: JSON.stringify({ name,  email,aicteid, userType,  password }),
       });
       const data = await response.json();
       if (response.ok) {
@@ -46,24 +45,18 @@ function Signup1() {
       <h1>Sign Up</h1>
       <label>
         {/* Name: */}
-        <input type="text" value={name} placeholder="Enter your name" onChange={(e) => setName(e.target.value)} />
+        <input type="text" value={name} placeholder="Enter institution name" onChange={(e) => setName(e.target.value)} />
       </label>
+      
       <label>
-        {/* Age: */}
-        <input type="number" value={age} placeholder="Enter your age"  onChange={(e) => setAge(e.target.value)} />
-      </label>
-      <label>
-        {/* Gender: */}
-        <input type="text" value={gender} placeholder="Enter your gender"  onChange={(e) => setGender(e.target.value)} />
+        {/* Email: */}
+        <input type="email" value={email} placeholder="Enter institution email" onChange={(e) => setEmail(e.target.value)} />
       </label>
       <label>
         {/* Email: */}
-        <input type="email" value={email} placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)} />
+        <input type="aicteid" value={aicteid} placeholder="Enter AICTE ID" onChange={(e) => setId(e.target.value)} />
       </label>
-      <label>
-        {/* Institution: */}
-        <input type="text" value={institution} placeholder="Enter your institution" onChange={(e) => setInstitution(e.target.value)} />
-      </label>
+      
       <label>
         User Type:
         <select value={userType} onChange={(e) => setUserType(e.target.value)}>
@@ -83,4 +76,4 @@ function Signup1() {
   );
 }
 
-export default Signup1;
+export default Institution_signup;

@@ -10,9 +10,48 @@ mongoose.connect(
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 app.use(express.json());
-app.post("/signup", async (req, res) => {
+app.post("/signup1", async (req, res) => {
   try {
-    const { name, age, email, userType, institution, password } = req.body;
+    const { name, age, gender,email, userType, institution, password } = req.body;
+    const uniqueIds = [
+      "0x84b6fb81d3ab6D69292346e7D4CA8607f67506C7",
+      "0x0Cbf871c2d48ce0f0F92589AA09Ece2E8Defb080",
+      "0xa9C72f276108f02F8C8f4d541f639f475D0BFfcb",
+      "0xA0e104b2201a9dEBa1BF59Dd704448C0d3D967Fe",
+      "0xDC873D7826D250830DE3cBA5b6e5E0a875d87c03",
+      "0x8482F2fa3e7C7b676b30ac69D71C87a1F946CCdF",
+      "0x793daa0E3ce53da4E71f974b45391Fc1B023Ef57",
+      "0xDfAe2E2da6e967b5B3615F1C5C0b376DBB0e977f",
+      "0x48C6dEed28ea7d2932a15DE0Df87e775F8923187",
+      "0xd8972a8285916fA0ACb19D6FD43F2d5c06b6Be07"
+    ];
+    
+    console.log(req.body);
+
+    // Iterate over uniqueIds array
+    for (const uniqueId of uniqueIds) {
+      // Check if a user with this uniqueId already exists
+      const existingUser = await User.findOne({ uniqueId: uniqueId });
+      if (existingUser) {
+        // If user exists, throw an error
+        continue;
+      }
+
+      // If user does not exist, create and save the user
+      const newUser = new User({ name, age,gender, email, userType, institution, password, uniqueId });
+      console.log(newUser);
+      await newUser.save();
+      break;
+    }
+    res.status(201).send({ message: "Users created successfully" });
+  } catch (error) {
+    // Handle errors
+    res.status(400).send({ error: error.message });
+  }
+});
+app.post("/company_signup", async (req, res) => {
+  try {
+    const { name, email, userType,  password } = req.body;
     const uniqueIds = [
       "0x84b6fb81d3ab6D69292346e7D4CA8607f67506C7",
       "0x0Cbf871c2d48ce0f0F92589AA09Ece2E8Defb080",
@@ -39,6 +78,45 @@ app.post("/signup", async (req, res) => {
 
       // If user does not exist, create and save the user
       const newUser = new User({ name, age, email, userType, institution, password, uniqueId });
+      console.log(newUser);
+      await newUser.save();
+      break;
+    }
+    res.status(201).send({ message: "Users created successfully" });
+  } catch (error) {
+    // Handle errors
+    res.status(400).send({ error: error.message });
+  }
+});
+app.post("/institution_signup", async (req, res) => {
+  try {
+    const { name,  email, aicteid ,userType,  password } = req.body;
+    const uniqueIds = [
+      "0x84b6fb81d3ab6D69292346e7D4CA8607f67506C7",
+      "0x0Cbf871c2d48ce0f0F92589AA09Ece2E8Defb080",
+      "0xa9C72f276108f02F8C8f4d541f639f475D0BFfcb",
+      "0xA0e104b2201a9dEBa1BF59Dd704448C0d3D967Fe",
+      "0xDC873D7826D250830DE3cBA5b6e5E0a875d87c03",
+      "0x8482F2fa3e7C7b676b30ac69D71C87a1F946CCdF",
+      "0x793daa0E3ce53da4E71f974b45391Fc1B023Ef57",
+      "0xDfAe2E2da6e967b5B3615F1C5C0b376DBB0e977f",
+      "0x48C6dEed28ea7d2932a15DE0Df87e775F8923187",
+      "0xd8972a8285916fA0ACb19D6FD43F2d5c06b6Be07"
+    ];
+    
+    console.log(req.body);
+
+    // Iterate over uniqueIds array
+    for (const uniqueId of uniqueIds) {
+      // Check if a user with this uniqueId already exists
+      const existingUser = await User.findOne({ uniqueId: uniqueId });
+      if (existingUser) {
+        // If user exists, throw an error
+        continue;
+      }
+
+      // If user does not exist, create and save the user
+      const newUser = new User({ name, email,aicteid, userType, institution, password, uniqueId });
       console.log(newUser);
       await newUser.save();
       break;
