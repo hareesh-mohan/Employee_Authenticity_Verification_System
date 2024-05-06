@@ -7,7 +7,8 @@ function Signup1() {
   const [userType, setUserType] = useState('');
   const [password, setPassword] = useState('');
   const [uniqueId, setUniqueId] = useState('');
-  
+  const [institution, setInstitution] = useState('');
+
   const handleGenerateUniqueId = () => {
     // Concatenate username and password to create a unique string
     const uniqueString = `${email}:${password}`;
@@ -26,7 +27,7 @@ function Signup1() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, age, email, userType, password }),
+        body: JSON.stringify({ name, age, email, userType, institution, password }),
       });
       const data = await response.json();
       if (response.ok) {
@@ -53,6 +54,10 @@ function Signup1() {
       <label>
         {/* Email: */}
         <input type="email" value={email} placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)} />
+      </label>
+      <label>
+        {/* Institution: */}
+        <input type="text" value={institution} placeholder="Enter your institution" onChange={(e) => setInstitution(e.target.value)} />
       </label>
       <label>
         User Type:
