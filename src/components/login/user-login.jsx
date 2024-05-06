@@ -1,3 +1,4 @@
+import { set } from 'mongoose';
 import React, { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
@@ -6,7 +7,8 @@ import { useNavigate } from 'react-router-dom';
 function UserLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  
+  const [userId, setUserId] = useState(''); // State variable to store user ID
+
   const [showForm, setShowForm] = useState(false); // State to manage form visibility
 
   const navigate = useNavigate(); // Initialize useNavigate
@@ -28,8 +30,8 @@ function UserLogin() {
       const data = await response.json();
       if (response.ok) {
         alert(data.message);
-        setShowForm(true);
-        handleSignupClick();
+        setShowForm(true); // Set the user ID from the response
+        handleSignupClick(data.user.uniqueId);
       } else {
         // Handle error
       }
@@ -38,8 +40,8 @@ function UserLogin() {
     }
   }
 
-  const handleSignupClick = () => {
-    navigate(`/userdash/${email}`); // Navigate to the signup page using navigate function
+  const handleSignupClick = (userId) => {
+    navigate(`/userdash/${email}/${userId}`); // Navigate to the signup page using navigate function
   };
 
   return (

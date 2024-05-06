@@ -12,7 +12,7 @@ mongoose.connect(
 app.use(express.json());
 app.post("/signup", async (req, res) => {
   try {
-    const { name, age, email, userType, password } = req.body;
+    const { name, age, email, userType, institution, password } = req.body;
     const uniqueIds = [
       "0x84b6fb81d3ab6D69292346e7D4CA8607f67506C7",
       "0x0Cbf871c2d48ce0f0F92589AA09Ece2E8Defb080",
@@ -38,12 +38,11 @@ app.post("/signup", async (req, res) => {
       }
 
       // If user does not exist, create and save the user
-      const newUser = new User({ name, age, email, userType, password, uniqueId });
+      const newUser = new User({ name, age, email, userType, institution, password, uniqueId });
       console.log(newUser);
       await newUser.save();
       break;
     }
-    console.log(newUser);
     res.status(201).send({ message: "Users created successfully" });
   } catch (error) {
     // Handle errors
@@ -74,7 +73,7 @@ app.get("/document/:email", async (req, res) => {
         .status(404)
         .json({ message: "Documents not found for the user" });
     }
-    res.status(200).json({ documents: documents.docHash });
+    res.status(200).json({ documents: documents.docHash, userId: documents.uniqueId });
   } catch (error) {
     console.error("Error fetching documents:", error);
     res.status(500).json({ message: "Internal server error" });

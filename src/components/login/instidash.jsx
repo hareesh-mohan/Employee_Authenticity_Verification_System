@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import axios from 'axios';
-import './instiDash.css'; // Import the CSS file for styling
+import './InstiDash.css'; // Import the CSS file for styling
 import Web3 from "web3";
 
 import UploadFile from "../UploadFile";
