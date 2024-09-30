@@ -44,16 +44,16 @@ function Institution_signup() {
     <form onSubmit={handleSubmit} className='form-container'>
       <h1>Sign Up</h1>
       <label>
-        {/* Name: */}
+        Name:
         <input type="text" value={name} placeholder="Enter institution name" onChange={(e) => setName(e.target.value)} />
       </label>
       
       <label>
-        {/* Email: */}
+        Email:
         <input type="email" value={email} placeholder="Enter institution email" onChange={(e) => setEmail(e.target.value)} />
       </label>
       <label>
-        {/* Email: */}
+        AICTE ID:
         <input type="aicteid" value={aicteid} placeholder="Enter AICTE ID" onChange={(e) => setId(e.target.value)} />
       </label>
       
