@@ -45,23 +45,23 @@ function Signup1() {
     <form onSubmit={handleSubmit} className='form-container'>
       <h1>Sign Up</h1>
       <label>
-        {/* Name: */}
+        Name:
         <input type="text" value={name} placeholder="Enter your name" onChange={(e) => setName(e.target.value)} />
       </label>
       <label>
-        {/* Age: */}
+        Age:
         <input type="number" value={age} placeholder="Enter your age"  onChange={(e) => setAge(e.target.value)} />
       </label>
       <label>
-        {/* Gender: */}
+        Gender:
         <input type="text" value={gender} placeholder="Enter your gender"  onChange={(e) => setGender(e.target.value)} />
       </label>
       <label>
-        {/* Email: */}
+        Email:
         <input type="email" value={email} placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)} />
       </label>
       <label>
-        {/* Institution: */}
+        Institution:
         <input type="text" value={institution} placeholder="Enter your institution" onChange={(e) => setInstitution(e.target.value)} />
       </label>
       <label>
