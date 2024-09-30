@@ -34,6 +34,7 @@ function Company_signup() {
         alert(data.message)
       } else {
         // Handle error
+         alert("Sign UP failed")
       }
     } catch (error) {
       // Handle network error
